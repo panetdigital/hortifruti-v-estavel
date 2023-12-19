@@ -12,31 +12,31 @@
           
            <strong><p>Campo de Pesquisa:</p></strong>
 
-           <v-autocomplete
-                  append-inner-icon="mdi-microphone"
-                  class="flex-full-width"
-                  density="comfortable"
-                  item-props
-                  placeholder="Pesquisar Produto"
-                  prepend-inner-icon="mdi-magnify"
-                  rounded
-                  theme="light"
-                  variant="solo"
-                  
-                  v-model="selectedProduct"
-                  :items="filteredProducts"
-                  label="Pesquisar produtos"
-                  item-text="nome"
-                  @input="handleSearchInput"
-                  clearable
-                  :search-input="selectedProduct"
-                  menu-props="auto" 
-                >
+              <v-autocomplete
+              append-inner-icon="mdi-microphone"
+                auto-select-first
+                class="flex-full-width"
+                density="comfortable"
+                item-props
+                menu-icon=""
+                placeholder="Pesquisar Produto"
+                prepend-inner-icon="mdi-magnify"
+                rounded
+                theme="light"
+                variant="solo"
+        
+                
 
+                v-model="selectedFruit"
+                :items="filteredFruits"
+                label="Pesquisar frutas"
+                item-text="nome"
+                @change="handleFruitSelection"
+              >
                 <template v-slot:item="{ item }">
                   <div>{{ item.nome }} - Código: {{ item.cod }}</div>
                 </template>
-            </v-autocomplete>
+              </v-autocomplete>
 <!-- este mtd vai ser apagado -->
            <!-- @input="filterProducts" -->
 
@@ -113,49 +113,56 @@ function startTyping() {
 
 
 <script>
-import data from "@/assets/fruits.json"; // Importe seus dados JSON
+import fruitsData from "@/assets/fruits.json"; // Importe seus dados JSON
 
 export default {
   name: 'IndexPage',
   data() {
     return {
-      selectedProduct: '',
-      products: data,
+      selectedFruit: null,
+      fruits: [],
       searchResults: [],
-
     };
   },
   computed: {
-  filteredProducts() {
-    if (!this.selectedProduct) {
-      return this.products;
-    }
+    filteredFruits() {
+      if (!this.selectedFruit) {
+        return this.fruits;
+      }
 
-    return this.products.filter((product) =>
-      product.nome.toLowerCase().includes(this.selectedProduct.toLowerCase())
-    );
-  },
-},
-
-methods: {
-  handleSearchInput() {
-    // Verifique se o texto digitado tem pelo menos 2 caracteres
-    if (this.selectedProduct && this.selectedProduct.length >= 2) {
-      // Filtre os produtos baseados no texto digitado
-      const query = this.selectedProduct.toLowerCase();
-      this.searchResults = this.products.filter((product) =>
-        product.nome.toLowerCase().includes(query)
+      return this.fruits.filter((fruit) =>
+        fruit.nome.toLowerCase().includes(this.selectedFruit.toLowerCase())
       );
-    } else {
-      // Limpe os resultados se não houver pelo menos 2 caracteres
-      this.searchResults = [];
-    }
+    },
   },
-},
+  methods: {
+    async fetchFruitsFromApi() {
+      try {
+        /* const response = await fetch('http://54.233.235.158/api/produtos'); */ // Substitua pela URL real
 
+        const response = await fetch('https://api.marketingonline.click/api/produtos');
+        const data = await response.json();
+        this.fruits = data;
+      } catch (error) {
+        console.error('Erro ao buscar frutas da API:', error);
+      }
+    },
+    handleFruitSelection() {
+      if (this.selectedFruit) {
+        const query = this.selectedFruit.toLowerCase();
+        this.searchResults = this.fruits.filter((fruit) =>
+          fruit.nome.toLowerCase().includes(query) 
+        );
 
+        // Limpe o campo de input (autocomplete) e redefina os resultados
+        this.selectedFruit = null;
+      } else {
+        this.searchResults = [];
+      }
+    },
+  },
   created() {
-    this.handleSearchInput();
+    this.fetchFruitsFromApi();
   },
 };
 </script>
