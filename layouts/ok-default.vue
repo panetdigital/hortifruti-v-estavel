@@ -26,8 +26,8 @@
 
         <v-divider></v-divider>
 
-          <v-list density="compact" nav>
-           <v-list-item >
+        <v-list density="compact" nav>
+          <v-list-item >
 
             <nuxt-link to="/">
               
@@ -40,54 +40,6 @@
            </v-list-item>
 
            <v-divider></v-divider>
-<!-- 
-           <v-list-item>
-              <a href="https://camera.marketingonline.click/camera.html" target="_blank">
-                <v-list-item-action>
-                  <v-icon size="20px" class="icone-custom">mdi-camera</v-icon>
-                </v-list-item-action>
-                <span class="texto-custom">Camera</span>
-              </a>
-            </v-list-item> -->
-          <v-list-item >
-                <nuxt-link to="/camera">
-                  
-                  <v-list-item-action>
-                    <v-icon size="20px" class="icone-custom">mdi-camera</v-icon> 
-                  </v-list-item-action>
-                  <span class="texto-custom">Camera</span>
-                </nuxt-link>   
-          </v-list-item>
-
-          <v-divider></v-divider>
-
-           <v-list-item >
-
-              <nuxt-link to="/controle-de-estoque">
-                
-                <v-list-item-action>
-                  <v-icon size="20px" class="icone-custom">local_mall</v-icon> 
-                </v-list-item-action>
-                <span class="texto-custom">Controle de Estoque</span>
-              </nuxt-link>   
-
-              </v-list-item>
-
-              <v-divider></v-divider>
-
-              <v-list-item >
-
-                <nuxt-link to="/gestao-de-estoque">
-                  
-                  <v-list-item-action>
-                    <v-icon size="20px" class="icone-custom">inventory</v-icon> 
-                  </v-list-item-action>
-                  <span class="texto-custom">Gestão de estoque</span>
-                </nuxt-link>   
-
-                </v-list-item>
-
-                <v-divider></v-divider>
 
           <v-list-item >
             
@@ -103,11 +55,11 @@
           <v-divider></v-divider>
 
           <v-list-item >
-            <nuxt-link to="/ovos">
+            <nuxt-link to="/listar-produtos">
             <v-list-item-action>
               <v-icon size="20px" class="icone-custom">mdi-account-group-outline</v-icon>
             </v-list-item-action>
-              <span class="texto-custom"> Preço de Ovos</span>
+              <span class="texto-custom"> Usuarios</span>
             </nuxt-link>
           </v-list-item>
 

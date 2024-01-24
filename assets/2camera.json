@@ -1,0 +1,29 @@
+[
+  {
+    "codigoDeBarras": "7898598140146",
+    "name": "Coentro Maço Unidade",
+    "price": "R$ 3,98 kg",
+    "imagem":"https://img.sitemercado.com.br/produtos/8a6931b52709be17b1087c62a6401d4dbba4ed5a541f62cc096c2eecb26240d6_mini.jpg",
+    "grupo":"tempero"
+  },
+  {
+    "codigoDeBarras": "987654321098",
+    "name": "Cenoura Legume Kg",
+    "price": "R$ 7,98 kg"
+  },
+  {
+    "codigoDeBarras": "111222333444",
+    "name": "Produto3",
+    "price": "R$ 12,34"
+  },
+  {
+    "codigoDeBarras": "7897373181695",
+    "name": "Vagem ramiro",
+    "price": "R$ 9,99",
+    "imagem":"https://img.sitemercado.com.br/produtos/1173776985e2afd72c6f66984b6c2b62dd36887fd6a30fe99504fd234ab5131d_mini.jpg",
+    "grupo":"legume"
+  }
+]
+
+
+

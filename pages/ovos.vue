@@ -10,7 +10,7 @@
         
         <div >
           
-           <strong><p>Campo de Pesquisa:</p></strong>
+           <strong><p>Campo de Pesquisa só OVO:</p></strong>
 
            <v-autocomplete
                   append-inner-icon="mdi-microphone"
@@ -34,7 +34,7 @@
                 >
 
                 <template v-slot:item="{ item }">
-                  <div>{{ item.nome }} - Código: {{ item.cod }}</div>
+                  <div>{{ item.nome }}</div>
                 </template>
             </v-autocomplete>
 <!-- este mtd vai ser apagado -->
@@ -119,7 +119,7 @@ function startTyping() {
 
 <script>
 import axios from 'axios';
-import data from "@/assets/fruits.json"; // Importe seus dados JSON
+import data from "@/assets/ovos.json"; // Importe seus dados JSON
 
 export default {
   name: 'IndexPage',
@@ -129,7 +129,6 @@ export default {
       selectedProductPrice: null, // Adicionando variável para armazenar o preço
       products: data,
       searchResults: [],
-      categoria: this.determineCategoria(data),
     };
   },
   computed: {
@@ -174,7 +173,7 @@ export default {
 
   try {
     // Faça a requisição à API com o Axios
-    const response = await axios.get(`http://54.207.231.105:8081/produto/${encodeURIComponent(this.selectedProduct)}`);
+    const response = await axios.get(`http://54.207.231.105:8081/api/ovos/${encodeURIComponent(this.selectedProduct)}`);
 
     // Log da resposta completa para verificar o que está sendo retornado
     console.log('Resposta da API:', response.data);
@@ -191,29 +190,12 @@ export default {
       if (categoriaDoProduto) {
         let novaResposta;
 
-        // Verifica se a categoria é "legumes"
-        if (categoriaDoProduto.toLowerCase() === 'legume') {
-          novaResposta = await axios.get(`http://54.207.231.105:8081/produto/legume/${encodeURIComponent(this.selectedProduct)}`);
-        }
-        // Verifica se a categoria é "frutas"
-        else if (categoriaDoProduto.toLowerCase() === 'fruta') {
-          novaResposta = await axios.get(`http://54.207.231.105:8081/produto/frutas/${encodeURIComponent(this.selectedProduct)}`);
-        }
-        // Verifica se a categoria é "verduras"
-        else if (categoriaDoProduto.toLowerCase() === 'verdura') {
-          novaResposta = await axios.get(`http://54.207.231.105:8081/produto/verduras/${encodeURIComponent(this.selectedProduct)}`);
-        }
-
-        // Verifica se a categoria é "temperos"
-        else if (categoriaDoProduto.toLowerCase() === 'tempero') {
-          novaResposta = await axios.get(`http://54.207.231.105:8081/produto/temperos/${encodeURIComponent(this.selectedProduct)}`);
-        }
-
-
         // Verifica se a categoria é "ovo"
-        else if (categoriaDoProduto.toLowerCase() === 'ovo') {
-          novaResposta = await axios.get(`http://54.207.231.105:8081/produto/alimentos-basicos/${encodeURIComponent(this.selectedProduct)}`);
+        if (categoriaDoProduto.toLowerCase() === 'ovo') {
+          novaResposta = await axios.get(`http://54.207.231.105:8081/produto/ovos/${encodeURIComponent(this.selectedProduct)}`);
         }
+       
+
         console.log('Resposta da Nova API com base na Categoria:', novaResposta.data);
 
         // Extraia o nome e preço da resposta
@@ -240,7 +222,6 @@ export default {
 }
 
 },
-
   created() {
     this.handleSearchInput();
   },
