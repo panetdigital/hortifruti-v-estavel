@@ -1,0 +1,6 @@
+urls endpoint:
+  http://54.207.231.105:8989/api/produtos --> pontado para API feito com Laravel.10 logado no docker
+      http://54.207.231.105:8081/produto/legume/batata   --> como paramtro legume/batata
+
+
+http://54.207.231.105:8080/index.php?route=/database/import&db=laravel    --> pontado para phpmyadmin logado no docker
