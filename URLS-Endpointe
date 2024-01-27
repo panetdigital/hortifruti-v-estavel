@@ -4,3 +4,4 @@ urls endpoint:
 
 
 http://54.207.231.105:8080/index.php?route=/database/import&db=laravel    --> pontado para phpmyadmin logado no docker
+http://54.207.231.105:8989/api/inventarios  --> para lista json inventario
