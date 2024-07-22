@@ -113,7 +113,18 @@ loadAdditionalFile(grupo) {
     case 'ovo':
       additionalData = require('~/assets/camera.json/raspagem_ovos.json');
       break;
-    
+    case 'fruta':
+      additionalData = require('../../../nodejs/dadosRaspagem/raspage_frutas.json');
+      break;
+    case 'legume':
+      additionalData = require('../../../nodejs/dadosRaspagem/raspagem_legumes.json');
+      break;
+    case 'tempero':
+      additionalData = require('../../../nodejs/dadosRaspagem/raspagem_temperos.json');
+      break;
+    case 'verdura':
+      additionalData = require('~/assets/camera.jsondadosRaspagem/verduras.json');
+      break;
     default:
       alert('Grupo de produto não reconhecido.');
       return;
