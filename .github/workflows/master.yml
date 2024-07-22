@@ -19,13 +19,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests (opcional)
-        # Adicione aqui o comando para rodar os seus testes
-        # Exemplo: npm test
-        run: |
-          # Substitua o comando abaixo pelo seu comando de teste
-          echo "** Nenhum comando de teste definido. Adicione o seu comando aqui!**"
-
+     
       - name: Build Vue.js app
         run: npm run build
 
